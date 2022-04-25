@@ -5,8 +5,10 @@ const knex = require("../database");
 // Returns all reservations
 router.get("/", async(request, response) => {
     try {
-        let queryfromDB = knex("reservation");
-        const result = await queryfromDB.select();
+        let reservations = knex("reservation");
+        const result = await reservations.select(
+            "reservation.number_of_guests", "reservation.created_date", "reservation.contact_phonenumber", "reservation.contact_name"
+        );
         response.json(result);
     } catch (error) {
         throw error;
@@ -48,7 +50,7 @@ router.put("/:id", async(request, response) => {
         const id = request.params.id;
         const updateById = await knex("reservation")
             .where({ id: id })
-            .update({ contact_name: updateReservation.contact_name });
+            .update({ contact_name: updateReservation });
         response.json(updateById);
     } catch (error) {
         throw error;

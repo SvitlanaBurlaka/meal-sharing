@@ -6,15 +6,15 @@ const knex = require("../database");
 // GET	Returns all meals
 router.get("/", async(request, response) => {
     try {
-        let queryfromDB = knex("meal");
+        let meals = knex("meal");
         if (request.query["maxPrice"]) {
-            queryfromDB = queryfromDB.where("price", "<", request.query["maxPrice"]);
+            meals = meals.where("price", "<", request.query["maxPrice"]);
         }
-        if (request.query["availableReservations"]) {
-            queryfromDB = queryfromDB.whereNotNull("max_reservations");
+        if (request.query["availableReservations"] === "true") {
+            meals = meals.sum({ reserved: "reservation.number_of_guests" }).join("reservation", "reservation.meal_id", "=", "meal.id").groupBy("meal.id").having("reserved", "<", "meal.max_reservations");
         }
         if (request.query["title"]) {
-            queryfromDB = queryfromDB.where(
+            meals = meals.where(
                 "title",
                 "like",
                 `%${request.query["title"]}%`
@@ -22,7 +22,7 @@ router.get("/", async(request, response) => {
         }
         if (request.query["createdAfter"]) {
             if (new Date(request.query["createdAfter"]) != "Invalid Date") {
-                queryfromDB = queryfromDB.where(
+                meals = meals.where(
                     "created_date",
                     ">",
                     request.query["createdAfter"]
@@ -33,10 +33,10 @@ router.get("/", async(request, response) => {
         }
 
         if (request.query["limit"]) {
-            queryfromDB = queryfromDB.limit(request.query["limit"]);
+            meals = meals.limit(request.query["limit"]);
         }
 
-        const result = await queryfromDB.select(
+        const result = await meals.select(
             "meal.title",
             "meal.description",
             "meal.location",
@@ -69,8 +69,8 @@ router.post("/", async(request, response) => {
 // GET	Returns meal by id
 router.get("/:id", async(request, response) => {
     try {
-        const neededId = request.params.id;
-        if (!Number(neededId)) {
+        const neededId = Number(request.params.id);
+        if (isNaN(neededId)) {
             response.status(400).json("Invalid data");
         } else {
             const getById = await knex("meal").where({ id: neededId }).select("*");
@@ -85,7 +85,7 @@ router.get("/:id", async(request, response) => {
 router.put("/:id", async(request, response) => {
     try {
         const updateMeals = request.body;
-        const id = request.params.id;
+        const id = Number(request.params.id);
         const updateById = await knex("meal")
             .where({ id: id })
             .update({ title: updateMeals.title });
