@@ -1,5 +1,6 @@
 const { query } = require("express");
 const express = require("express");
+const { sum } = require("../database");
 const router = express.Router();
 const knex = require("../database");
 
@@ -11,22 +12,18 @@ router.get("/", async(request, response) => {
             meals = meals.where("price", "<", request.query["maxPrice"]);
         }
         if (request.query["availableReservations"] === "true") {
-            meals = meals.sum({ reserved: "reservation.number_of_guests" }).join("reservation", "reservation.meal_id", "=", "meal.id").groupBy("meal.id").having("reserved", "<", "meal.max_reservations");
+            meals = meals
+                .select("meal.id", "meal.max_reservations")
+                .leftJoin("reservation", { "meal.id": "reservation.meal_id" })
+                .groupBy("meal.id")
+                .having(knex.raw("meal.max_reservations > 0"));
         }
         if (request.query["title"]) {
-            meals = meals.where(
-                "title",
-                "like",
-                `%${request.query["title"]}%`
-            );
+            meals = meals.where("title", "like", `%${request.query["title"]}%`);
         }
         if (request.query["createdAfter"]) {
             if (new Date(request.query["createdAfter"]) != "Invalid Date") {
-                meals = meals.where(
-                    "created_date",
-                    ">",
-                    request.query["createdAfter"]
-                );
+                meals = meals.where("created_date", ">", request.query["createdAfter"]);
             } else {
                 response.status(400).json("Invalid date");
             }
