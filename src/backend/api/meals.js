@@ -11,12 +11,34 @@ router.get("/", async(request, response) => {
         if (request.query["maxPrice"]) {
             meals = meals.where("price", "<", request.query["maxPrice"]);
         }
-        if (request.query["availableReservations"] === "true") {
+        if (
+            request.query["availableReservations"] === "true" &&
+            request.query["availableReservations"] !== "undefined"
+        ) {
             meals = meals
-                .select("meal.id", "meal.max_reservations")
-                .leftJoin("reservation", { "meal.id": "reservation.meal_id" })
-                .groupBy("meal.id")
-                .having(knex.raw("meal.max_reservations > 0"));
+                .leftJoin("reservation", "meal.id", "=", "reservation.meal_id")
+                .select(
+                    "meal.id",
+                    "meal.title",
+                    "meal.description",
+                    "meal.location",
+                    "meal.when",
+                    "meal.created_date",
+                    "meal.price",
+                    "meal.max_reservations",
+                    knex.raw(
+                        "COALESCE(SUM(reservation.number_of_guests),0) as total_guests"
+                    ),
+                    knex.raw(
+                        "(meal.max_reservations-COALESCE(SUM(reservation.number_of_guests),0)) AS available_reservation"
+                    )
+                )
+                .groupBy("meal.id");
+            // .having(
+            //     knex.raw(
+            //         "(max_reservations > COALESCE(SUM(reservation.number_of_guests),0))"
+            //     )
+            // );
         }
         if (request.query["title"]) {
             meals = meals.where("title", "like", `%${request.query["title"]}%`);
@@ -34,6 +56,7 @@ router.get("/", async(request, response) => {
         }
 
         const result = await meals.select(
+            "meal.id",
             "meal.title",
             "meal.description",
             "meal.location",
