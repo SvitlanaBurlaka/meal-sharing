@@ -1,0 +1,33 @@
+.navigation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+nav {
+    background-color: #f0f1e9;
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+    align-items: center;
+}
+
+.nav-link {
+    float: left;
+    padding: 20px 35px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #ea4625;
+}
+
+.description-header {
+    background-color: #f0f1e9;
+    display: block;
+    text-align: center;
+    color: #104d4d;
+}
+
+.logo-header {
+    width: 150px;
+}

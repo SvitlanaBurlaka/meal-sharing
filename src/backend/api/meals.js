@@ -34,11 +34,6 @@ router.get("/", async(request, response) => {
                     )
                 )
                 .groupBy("meal.id");
-            // .having(
-            //     knex.raw(
-            //         "(max_reservations > COALESCE(SUM(reservation.number_of_guests),0))"
-            //     )
-            // );
         }
         if (request.query["title"]) {
             meals = meals.where("title", "like", `%${request.query["title"]}%`);
