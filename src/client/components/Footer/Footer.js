@@ -8,7 +8,7 @@ export function Footer() {
     return (
         <footer>
             <div className="footer-container">
-                <div className="container-logo">
+                <div>
                     <Link to="/"><img className="logo" src={fLogo} alt="facebook-logo" /></Link>
                     <Link to="/"><img className="logo" src={instaLogo} alt="insta-logo" /></Link>
                     <Link to="/"><img className="logo" src={twitterLogo} alt="twitter-logo" /></Link>

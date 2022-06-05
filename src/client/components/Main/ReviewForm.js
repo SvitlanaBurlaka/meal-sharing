@@ -51,34 +51,35 @@ export function ReviewForm(props) {
     }
 
     return (
-        <>
-            <p>Here you can leave your review</p>
-            <p> {error}</p>
-            <form action="POST">
-                <textarea
-                    name="review"
-                    id="review"
-                    cols="30"
-                    rows="10"
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
-                ></textarea>
-                <label htmlFor="stars">Give a star:</label>
-                <select
-                    id="stars"
-                    name="stars"
-                    value={stars}
-                    multiple={false}
-                    onChange={(e) => setStars(e.target.value)}
-                >
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
-                <button onClick={addReview}>Save</button>
-            </form>
-        </>
+        <div className="review-container">
+            <p className="review-p">Have you alredy tried this meal? Leave your review please.</p>
+            <p className="error-text"> {error}</p>
+                <form action="POST">
+                    <textarea
+                        name="review"
+                        id="review"
+                        cols="30"
+                        rows="10"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                    ></textarea>
+                    <div className="select-container">
+                        <p>Give a star:</p>
+                        <select
+                            id="stars"
+                            name="stars"
+                            value={stars}
+                            multiple={false}
+                            onChange={(e) => setStars(e.target.value)}>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </select>
+                        <button className="save-review-button" onClick={addReview}>Save</button>
+                    </div>
+                </form>
+        </div>
     );
 }

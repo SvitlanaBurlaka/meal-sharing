@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { Meals } from "./components/Main/Meals";
 import { MealWithId } from "./components/Main/MealWithId";
-import { About } from "./components/Pages/About";
 import { Blog } from "./components/Pages/Blog";
 import { MealsProvider } from "./components/MealsContext";
 import { Home } from "./components/Pages/Home";
@@ -24,9 +23,6 @@ function App() {
           </Route>
           <Route path="/meals/:id">
             <MealWithId />
-          </Route>
-          <Route exact path="/about">
-            <About />
           </Route>
           <Route exact path="/blog">
             <Blog />

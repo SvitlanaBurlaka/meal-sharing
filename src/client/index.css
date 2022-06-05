@@ -27,38 +27,24 @@ a {
     color: #2d3233;
 }
 
-button {
-    background-color: #3e99c0;
-    border-radius: 8px;
-    border-width: 0px;
-    font-weight: 295;
-    color: rgb(255, 255, 255);
-    padding: 5px;
-    font-size: 17px;
-}
-
-.meals-list {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-}
-
-.meal-item {
-    width: auto;
-    margin: 10px;
+.error-text, .loading-text {
     text-align: center;
-    width: 200px;
-    height: 250px;
+    color: #c44e36;
+    font-size:18px;
+    font-weight: 800;
 }
 
-.no-meals-left {
-    color: crimson;
+
+.not-found-container{
+    padding:80px;
+    width:auto;
+    height:400px;
 }
 
-input {
-    margin: 8px 8px;
+.not-found , .not-found-text{
+    font-size:25px;
+    font-weight:800;
+    text-align:center;
 }
 
 @media screen and (max-width: 1400px) {

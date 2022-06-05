@@ -2,8 +2,7 @@ footer {
     background-color: #e7d8c1;
     width: auto;
     color: #104d4d;
-    margin-top: 70px;
-    padding: 40px 20px 40px 20px;
+    padding: 20px;
 }
 
 .logo {
@@ -21,8 +20,4 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.container-logo {
-    margin-top: 15px;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MealsContext } from "../MealsContext";
+import "./FormCreateNewMeal.css";
 export function FormCreateNewMeal() {
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
@@ -47,10 +48,10 @@ export function FormCreateNewMeal() {
     }
 
     return (
-        <>
-            <p> {error}</p>
+        <div className="form-add-meal">
+            <p className="error-text"> {error}</p>
+            <h4 className="form-text">Do you want to add new meal? Fill up the form .</h4>
             <form onSubmit={addMeal}>
-
                 <label htmlFor="POST-title">Title:</label>
                 <input
                     type="text"
@@ -87,7 +88,6 @@ export function FormCreateNewMeal() {
                     Add Meal
                 </button>
             </form >
-        </>
-
+        </div>
     );
 }

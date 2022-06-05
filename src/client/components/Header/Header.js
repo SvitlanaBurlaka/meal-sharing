@@ -14,9 +14,6 @@ export default function Header() {
                 <Link to="/meals" className="nav-link">
                     Meals
                 </Link>
-                <Link to="/about" className="nav-link">
-                    About
-                </Link>
                 <Link to="/blog" className="nav-link">
                     Blog
                 </Link>

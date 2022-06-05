@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FormReservation } from "./FormReservation";
 import { ReviewForm } from "./ReviewForm";
+import "./MealWithId.css";
 export function MealWithId() {
     const [meal, setMeal] = useState({});
     const [reservations, setReservations] = useState([]);
@@ -52,19 +53,19 @@ export function MealWithId() {
         .filter((item) => item.id == params.id)
         .map((e) => e.available_reservation);
 
-
     return (
-        <>
-            {isLoading ? <p> Loading... </p> : ""}
-            {error && <p> Something went wrong </p>}
-            <h4> {meal.title} </h4>
-            <p> {meal.description} </p>
+        <div className="id-meal-container">
+        {isLoading ? <p className="loading-text"> Loading... </p> : ""}
+            {error && <p className="error-text"> Something went wrong </p>}
+            <h3 className="meal-title"> {meal.title} </h3>
+            <p className="meal-description"> {meal.description} </p>
             {parseInt(availRes) > 0 ? (
                 <FormReservation id={meal.id} />
             ) : (
-                <p className="no-meals-left"> There is no available meals... </p>
+                <p className="no-meals-left">Sorry...There is no available meals left... </p>
             )}
             <ReviewForm></ReviewForm>
-        </>
+        </div>
+
     );
 }

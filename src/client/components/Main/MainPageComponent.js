@@ -7,16 +7,15 @@ export function MainPageComponent() {
     const value = useContext(MealsContext);
     return (
         <>
-            {value.isLoading ? <p>Loading...</p> : ""}
-            {value.error && <p>Something went wrong</p>}
-            <ul>
+            {value.isLoading ? <p className=".loading-text">Loading...</p> : ""}
+            {value.error && <p className="error-text">Something went wrong</p>}
+            <ul className="meals-home-page">
                 {value.meals.map((item) => {
                     return (
                         <MainPageMealItem
                             key={item.id}
                             id={item.id}
                             mealTitle={item.title}
-                            mealDescription={item.description}
                         />
                     );
                 })}

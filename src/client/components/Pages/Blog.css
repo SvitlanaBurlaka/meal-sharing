@@ -1,0 +1,20 @@
+.blog-container {
+    margin: 30px 30px;
+    display: flex;
+    align-items:center;
+}
+
+.blog-img {
+    width: 400px;
+    margin-right: 70px;
+}
+
+.blog-text {
+    margin: 50px;
+}
+
+.blog-h {
+    margin-bottom: 7px;
+    text-align: center;
+    color: #ea4625;
+}

@@ -44,40 +44,40 @@ export function FormReservation(props) {
                     console.log(error);
                 });
         }
-
     }
     return (<>
-        <p>{error}</p>
-        <form onSubmit={addReservation}>
-            <label htmlFor="POST-name"> Name: </label>
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                name="name"
-                id="POST-name"
-            />
-            <label htmlFor="POST-phone"> Phone: </label>
-            <input
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                name="phone"
-                id="POST-phone"
-            />
-            <label htmlFor="POST-email"> Email: </label>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                name="email"
-                id="POST-email"
-            />
-            <button type="submit" >
-                Save
-            </button>
-        </form>
+        <p className="error-text">{error}</p>
+        <div className="reservation-form">
+            <form onSubmit={addReservation}>
+                <label htmlFor="POST-name"> Name: </label>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    id="POST-name"
+                />
+                <label htmlFor="POST-phone"> Phone: </label>
+                <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    name="phone"
+                    id="POST-phone"
+                />
+                <label htmlFor="POST-email"> Email: </label>
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    id="POST-email"
+                />
+                <button type="submit" >
+                    Save
+                </button>
+            </form>
+        </div>
     </>
-
     );
 }
