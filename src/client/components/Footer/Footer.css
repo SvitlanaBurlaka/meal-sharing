@@ -21,3 +21,36 @@ footer {
     justify-content: space-evenly;
     align-items: center;
 }
+
+@media screen and (max-width: 600px){
+    .footer-container{
+        display:grid;
+    }
+
+    .logo{
+        width:40px;
+        height:40px;
+        margin:10px;
+    }
+
+    .contacts-container{
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .footer-navigation{
+        text-align: center;
+    }
+
+    .contacts{
+        font-size:13px;
+    }
+
+    .nav-link-footer{
+        font-size:13px;
+    }
+
+    .text-footer{
+        font-size:14px;
+    }
+}

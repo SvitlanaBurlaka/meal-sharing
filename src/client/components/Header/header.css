@@ -20,13 +20,24 @@ nav {
     color: #ea4625;
 }
 
-.description-header {
-    background-color: #f0f1e9;
-    text-align: center;
-    color: #104d4d;
-}
-
 .logo-header {
     width: 150px;
-    cursor:pointer;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: grid;
+        justify-content: center;
+    }
+    .nav-link {
+        padding: 10px 35px;
+        font-size: 13px;
+    }
+    .logo-header {
+        width: 100px;
+    }
+    .description-header {
+        font-size: 13px;
+    }
 }

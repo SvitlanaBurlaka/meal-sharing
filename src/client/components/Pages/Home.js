@@ -1,8 +1,8 @@
 import React from "react";
 import { MainPageComponent } from "../Main/MainPageComponent";
 import "./mainPage.css";
-import mainBanner from "./mainBanner.jpg";
 import { Link } from "react-router-dom";
+
 export function Home() {
     return (
         <>

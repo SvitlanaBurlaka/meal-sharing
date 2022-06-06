@@ -10,7 +10,6 @@ export function MealWithId() {
     const params = useParams();
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [stars, setStars] = useState("0");
 
     useEffect(() => {
         fetchMealWithId();
@@ -55,7 +54,7 @@ export function MealWithId() {
 
     return (
         <div className="id-meal-container">
-        {isLoading ? <p className="loading-text"> Loading... </p> : ""}
+            {isLoading ? <p className="loading-text"> Loading... </p> : ""}
             {error && <p className="error-text"> Something went wrong </p>}
             <h3 className="meal-title"> {meal.title} </h3>
             <p className="meal-description"> {meal.description} </p>
@@ -66,6 +65,5 @@ export function MealWithId() {
             )}
             <ReviewForm></ReviewForm>
         </div>
-
     );
 }

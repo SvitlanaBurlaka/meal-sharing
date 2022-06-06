@@ -10,6 +10,7 @@ import { Home } from "./components/Pages/Home";
 import { NotFoundPage } from "./components/Pages/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
 function App() {
+
   return (
     <Router>
       <MealsProvider>

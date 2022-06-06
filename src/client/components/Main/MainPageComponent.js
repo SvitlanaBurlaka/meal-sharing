@@ -7,7 +7,7 @@ export function MainPageComponent() {
     const value = useContext(MealsContext);
     return (
         <>
-            {value.isLoading ? <p className=".loading-text">Loading...</p> : ""}
+            {value.isLoading ? <p className="loading-text">Loading...</p> : ""}
             {value.error && <p className="error-text">Something went wrong</p>}
             <ul className="meals-home-page">
                 {value.meals.map((item) => {

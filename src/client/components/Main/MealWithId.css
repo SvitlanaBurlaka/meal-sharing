@@ -1,16 +1,16 @@
-.id-meal-container{
-    width:100%;
-    padding:30px;
+.id-meal-container {
+    width: 100%;
+    padding: 30px;
 }
 
-.meal-title{
-    text-align:center;
-
+.meal-title {
+    text-align: center;
 }
-.meal-description{
-    margin:30px;
-    font-size:18px;
-    text-align:center;
+
+.meal-description {
+    margin: 30px;
+    font-size: 18px;
+    text-align: center;
 }
 
 .reservation-form {
@@ -43,8 +43,8 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-.review-container{
-    margin:70px auto;
+.review-container {
+    margin: 70px auto;
 }
 
 textarea {
@@ -88,15 +88,67 @@ select {
 }
 
 .no-meals-left {
-    margin-top:35px;
+    margin-top: 35px;
     text-align: center;
     color: crimson;
-    font-size:20px;
-    font-weight:900;
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .review-p {
-    font-size:18px;
-    font-weight:800;
-   text-align:center;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .reservation-form {
+        padding: 10px;
+        width: 70%;
+    }
+    .review-p {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .meal-title {
+        font-size: 16px;
+    }
+    .meal-description {
+        margin: 15px;
+        font-size: 16px;
+    }
+    .reservation-form {
+        width: 85%;
+        margin: 34px auto 36px;
+    }
+    .id-meal-container {
+        padding: 15px;
+    }
+    .review-p {
+        font-size: 16px;
+    }
+    textarea {
+        width: 100%;
+    }
+    .select-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 16px;
+    }
+    select,
+    .save-review-button {
+        width: 60%;
+    }
+    .no-meals-left {
+        margin-top: 25px;
+        text-align: center;
+        color: crimson;
+        font-size: 17px;
+        font-weight: 600;
+    }
 }

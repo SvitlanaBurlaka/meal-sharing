@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { MealsContext } from "../MealsContext";
 import "./FormCreateNewMeal.css";
+
 export function FormCreateNewMeal() {
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
