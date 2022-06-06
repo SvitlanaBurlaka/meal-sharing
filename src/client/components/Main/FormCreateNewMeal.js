@@ -23,7 +23,7 @@ export function FormCreateNewMeal() {
         ) {
             setError("Don`t leave empty inputs please.");
         } else {
-            fetch("http://localhost:5000/api/meals", {
+            fetch("/api/meals", {
                 method: "POST",
                 body: JSON.stringify({
                     title: title,
@@ -51,7 +51,9 @@ export function FormCreateNewMeal() {
     return (
         <div className="form-add-meal">
             <p className="error-text"> {error}</p>
-            <h4 className="form-text">Do you want to add new meal? Fill up the form .</h4>
+            <h4 className="form-text">
+                Do you want to add new meal? Fill up the form .
+            </h4>
             <form onSubmit={addMeal}>
                 <label htmlFor="POST-title">Title:</label>
                 <input
@@ -85,10 +87,8 @@ export function FormCreateNewMeal() {
                     name="max_reservations"
                     id="POST-max_reservations"
                 />
-                <button type="submit" >
-                    Add Meal
-                </button>
-            </form >
+                <button type="submit">Add Meal</button>
+            </form>
         </div>
     );
 }

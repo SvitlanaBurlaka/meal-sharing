@@ -14,7 +14,7 @@ export function ReviewForm(props) {
     }, []);
 
     function fetchMealWithId() {
-        fetch(`http://localhost:5000/api/meals/${params.id}`)
+        fetch(`/api/meals/${params.id}`)
             .then((response) => {
                 return response.json();
             })
@@ -29,7 +29,7 @@ export function ReviewForm(props) {
 
     function addReview(event) {
         event.preventDefault();
-        fetch("http://localhost:5000/api/reviews", {
+        fetch("/api/reviews", {
             method: "POST",
             body: JSON.stringify({
                 title: "Review for" + meal.title,
@@ -52,34 +52,39 @@ export function ReviewForm(props) {
 
     return (
         <div className="review-container">
-            <p className="review-p">Have you alredy tried this meal? Leave your review please.</p>
+            <p className="review-p">
+                Have you alredy tried this meal? Leave your review please.
+            </p>
             <p className="error-text"> {error}</p>
-                <form action="POST">
-                    <textarea
-                        name="review"
-                        id="review"
-                        cols="30"
-                        rows="10"
-                        value={review}
-                        onChange={(e) => setReview(e.target.value)}
-                    ></textarea>
-                    <div className="select-container">
-                        <p>Give a star:</p>
-                        <select
-                            id="stars"
-                            name="stars"
-                            value={stars}
-                            multiple={false}
-                            onChange={(e) => setStars(e.target.value)}>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                        </select>
-                        <button className="save-review-button" onClick={addReview}>Save</button>
-                    </div>
-                </form>
+            <form action="POST">
+                <textarea
+                    name="review"
+                    id="review"
+                    cols="30"
+                    rows="10"
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
+                ></textarea>
+                <div className="select-container">
+                    <p>Give a star:</p>
+                    <select
+                        id="stars"
+                        name="stars"
+                        value={stars}
+                        multiple={false}
+                        onChange={(e) => setStars(e.target.value)}
+                    >
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </select>
+                    <button className="save-review-button" onClick={addReview}>
+                        Save
+                    </button>
+                </div>
+            </form>
         </div>
     );
 }

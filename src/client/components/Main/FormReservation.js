@@ -16,7 +16,7 @@ export function FormReservation(props) {
         if (name.trim().length == 0 || phone.trim().length == 0 || email.trim().length == 0) {
             setError("Don`t leave empty inputs please.");
         } else {
-            fetch("http://localhost:5000/api/reservations", {
+            fetch("/api/reservations", {
                 method: "POST",
                 body: JSON.stringify({
                     number_of_guests: 1,

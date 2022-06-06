@@ -13,7 +13,7 @@ export const MealsProvider = ({ children }) => {
 
     function fetchMeals() {
         setIsLoading(true);
-        fetch("http://localhost:5000/api/meals")
+        fetch("/api/meals")
             .then((response) => {
                 return response.json();
             })
@@ -38,7 +38,8 @@ export const MealsProvider = ({ children }) => {
 
     return (
         <MealsContext.Provider
-            value={{ meals, fetchMeals, error, isLoading, getTodaysDate, }}>
+            value={{ meals, fetchMeals, error, isLoading, getTodaysDate }}
+        >
             {children}
         </MealsContext.Provider>
     );
