@@ -13,7 +13,7 @@ export const MealsProvider = ({ children }) => {
 
     function fetchMeals() {
         setIsLoading(true);
-        fetch("http://localhost:5000/api/meals")
+        fetch("/api/meals")
             .then((response) => {
                 return response.json();
             })
