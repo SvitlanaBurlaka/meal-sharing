@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MealsContext } from "../MealsContext";
-
 export function FormReservation(props) {
     const value = useContext(MealsContext);
     const [error, setError] = useState("");
@@ -13,7 +12,11 @@ export function FormReservation(props) {
     function addReservation(event) {
         event.preventDefault();
         setError("");
-        if (name.trim().length == 0 || phone.trim().length == 0 || email.trim().length == 0) {
+        if (
+            name.trim().length == 0 ||
+            phone.trim().length == 0 ||
+            email.trim().length == 0
+        ) {
             setError("Don`t leave empty inputs please.");
         } else {
             fetch("/api/reservations", {
@@ -45,39 +48,38 @@ export function FormReservation(props) {
                 });
         }
     }
-    return (<>
-        <p className="error-text">{error}</p>
-        <div className="reservation-form">
-            <form onSubmit={addReservation}>
-                <label htmlFor="POST-name"> Name: </label>
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    name="name"
-                    id="POST-name"
-                />
-                <label htmlFor="POST-phone"> Phone: </label>
-                <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    name="phone"
-                    id="POST-phone"
-                />
-                <label htmlFor="POST-email"> Email: </label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    name="email"
-                    id="POST-email"
-                />
-                <button type="submit" >
-                    Save
-                </button>
-            </form>
-        </div>
-    </>
+    return (
+        <>
+            <p className="error-text">{error}</p>
+            <div className="reservation-form">
+                <form onSubmit={addReservation}>
+                    <label htmlFor="POST-name"> Name: </label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        name="name"
+                        id="POST-name"
+                    />
+                    <label htmlFor="POST-phone"> Phone: </label>
+                    <input
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        name="phone"
+                        id="POST-phone"
+                    />
+                    <label htmlFor="POST-email"> Email: </label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                        id="POST-email"
+                    />
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </>
     );
 }

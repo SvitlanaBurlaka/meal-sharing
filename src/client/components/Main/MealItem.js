@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./meals.css";
 export function MealItem(props) {
     return (
         <li className="meal-item">

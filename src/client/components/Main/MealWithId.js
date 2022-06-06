@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FormReservation } from "./FormReservation";
 import { ReviewForm } from "./ReviewForm";
-
+import "./mealWithId.css";
 export function MealWithId() {
     const [meal, setMeal] = useState({});
     const [reservations, setReservations] = useState([]);

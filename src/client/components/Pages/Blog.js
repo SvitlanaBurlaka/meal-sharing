@@ -1,6 +1,6 @@
 import React from "react";
 import BannerForBlog from "./BannerForBlog.jpg";
-
+import "./blog.css";
 export function Blog() {
     return (
         <div className="blog-container">

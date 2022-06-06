@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MealsContext } from "../MealsContext";
+import "./formCreateNewMeal.css";
 
 export function FormCreateNewMeal() {
     const [title, setTitle] = useState("");
