@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { MealsContext } from "../MealsContext";
 import { MealItem } from "./MealItem";
 import { FormCreateNewMeal } from "./FormCreateNewMeal";
-import "./mealsPage.css";
+
 
 export function Meals() {
 

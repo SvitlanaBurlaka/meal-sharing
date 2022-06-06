@@ -1,6 +1,5 @@
 import React from "react";
 import { MainPageComponent } from "../Main/MainPageComponent";
-import "./mainPage.css";
 import { Link } from "react-router-dom";
 
 export function Home() {

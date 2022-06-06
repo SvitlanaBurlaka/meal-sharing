@@ -1,6 +1,5 @@
 import React from "react";
 import BannerForBlog from "./BannerForBlog.jpg";
-import "./Blog.css";
 
 export function Blog() {
     return (

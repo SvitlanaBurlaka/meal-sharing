@@ -1,5 +1,4 @@
 import React from "react";
-import "./Footer.css";
 import fLogo from "./images/fLogo.jpg";
 import instaLogo from "./images/instaLogo.jpg";
 import twitterLogo from "./images/twitterLogo.jpg";
