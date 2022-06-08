@@ -26,18 +26,14 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-    nav {
-        display: grid;
-        justify-content: center;
-    }
     .nav-link {
-        padding: 11px 40px;
+        padding: 10px 10px;
         font-size: 13px;
     }
     .logo-header {
-        width: 100px;
+        width: 85px;
     }
     .description-header {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
