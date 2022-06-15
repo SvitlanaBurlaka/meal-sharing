@@ -17,7 +17,7 @@ export function MealWithId() {
     }, []);
 
     function fetchMealWithId() {
-        fetch(`/api/meals/${params.id}`)
+        fetch(`http://localhost:5000/api/meals/${params.id}`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -35,7 +35,7 @@ export function MealWithId() {
     }
 
     function fetchAvailReservation() {
-        fetch(`/api/meals?availableReservations=true`)
+        fetch(`http://localhost:5000/api/meals?availableReservations=true`)
             .then((response) => {
                 return response.json();
             })
@@ -52,6 +52,8 @@ export function MealWithId() {
         .filter((item) => item.id == params.id)
         .map((e) => e.available_reservation);
 
+    console.log(availRes);
+
     return (
         <div className="id-meal-container">
             {isLoading ? <p className="loading-text"> Loading... </p> : ""}
@@ -59,7 +61,10 @@ export function MealWithId() {
             <h3 className="meal-title"> {meal.title} </h3>
             <p className="meal-description"> {meal.description} </p>
             {parseInt(availRes) > 0 ? (
-                <FormReservation id={meal.id} />
+                <>
+                    <p className="meal-description">There is {availRes} meals left </p>
+                    <FormReservation id={meal.id} reloadReservations={fetchAvailReservation} />
+                </>
             ) : (
                 <p className="no-meals-left">
                     Sorry...There is no available meals left...{" "}

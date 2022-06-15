@@ -8,21 +8,23 @@ export function FormReservation(props) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [numberOfGuests, setNumberOfGuest] = useState("");
 
     function addReservation(event) {
         event.preventDefault();
         setError("");
         if (
             name.trim().length == 0 ||
+            numberOfGuests.trim().length == 0 ||
             phone.trim().length == 0 ||
             email.trim().length == 0
         ) {
             setError("Don`t leave empty inputs please.");
         } else {
-            fetch("/api/reservations", {
+            fetch("http://localhost:5000/api/reservations", {
                 method: "POST",
                 body: JSON.stringify({
-                    number_of_guests: 1,
+                    number_of_guests: numberOfGuests,
                     meal_id: props.id,
                     created_date: value.getTodaysDate(),
                     contact_name: name,
@@ -36,9 +38,11 @@ export function FormReservation(props) {
                 .then((response) => {
                     if (response.ok) {
                         alert("Post sent succesfully");
+                        props.reloadReservations();
                         setEmail("");
                         setName("");
                         setPhone("");
+                        setNumberOfGuest("");
                     }
                 })
                 .catch((error) => {
@@ -60,6 +64,14 @@ export function FormReservation(props) {
                         onChange={(e) => setName(e.target.value)}
                         name="name"
                         id="POST-name"
+                    />
+                    <label htmlFor="POST-number-of-guests"> Number of guests: </label>
+                    <input
+                        type="number"
+                        value={numberOfGuests}
+                        onChange={(e) => setNumberOfGuest(e.target.value)}
+                        name="number-of-guests"
+                        id="POST-number-of-guests"
                     />
                     <label htmlFor="POST-phone"> Phone: </label>
                     <input
