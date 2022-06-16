@@ -2,13 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header/Header";
-import { Meals } from "./components/Main/Meals";
-import { MealWithId } from "./components/Main/MealWithId";
-import { Blog } from "./components/Pages/Blog";
-import { MealsProvider } from "./components/MealsContext";
-import { Home } from "./components/Pages/Home";
-import { NotFoundPage } from "./components/Pages/NotFoundPage";
+import { Meals } from "./components/Main/Meals/Meals";
+import { MealWithId } from "./components/MealById/MealWithId";
+import { Blog } from "./components/Blog/Blog";
+import { MealsProvider } from "./components/MealsContext/MealsContext";
+import { Home } from "./components/Main/Home/Home";
+import { NotFoundPage } from "./components/NotFound/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
+import { FormCreateNewMeal } from "./components/AddMeal/FormCreateNewMeal";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/meals/:id">
             <MealWithId />
+          </Route>
+          <Route exact path="/addMeal">
+            <FormCreateNewMeal />
           </Route>
           <Route exact path="/blog">
             <Blog />

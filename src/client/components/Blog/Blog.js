@@ -1,11 +1,11 @@
 import React from "react";
-import BannerForBlog from "./BannerForBlog.jpg";
+import blogBanner from "./blogBanner.jpg";
 import "./blog.css";
 export function Blog() {
     return (
         <div className="blog-container">
             <div className="blog-img">
-                <img className="blog-img" src={BannerForBlog} alt="blog-image" />
+                <img className="blog-img" src={blogBanner} alt="blog-image" />
             </div>
             <div className="blog-text">
                 <h2 className="description-header">

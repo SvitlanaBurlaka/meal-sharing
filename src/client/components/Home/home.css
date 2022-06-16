@@ -1,5 +1,5 @@
 .main-container {
-    background-image: url(./mainBanner.jpg);
+    background-image: url(./myImage.jpg);
     width: 100%;
     display: flex;
 }
@@ -26,12 +26,14 @@
 }
 
 .container-list {
-    width: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ddd1bb;
+    width: 100%;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 40px;
 }
 
 .text-home-page {
@@ -45,10 +47,8 @@
         justify-content: space-around;
     }
     .container-list {
-        width: 85%;
         display: flex;
         flex-direction: column;
-        margin: 10px;
     }
     .text-home-page {
         font-size: 15px;

@@ -5,6 +5,7 @@ import { FormReservation } from "./FormReservation";
 import { ReviewForm } from "./ReviewForm";
 import { ReviewsComponent } from "./ReviewsComponent";
 import "./mealWithId.css";
+
 export function MealWithId() {
     const [meal, setMeal] = useState({});
     const [reservations, setReservations] = useState([]);

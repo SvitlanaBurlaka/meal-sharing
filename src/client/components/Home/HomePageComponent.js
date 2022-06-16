@@ -1,9 +1,9 @@
 import React from "react";
-import { MainPageMealItem } from "./MainPageMealItem";
+import { HomePageMealItem } from "./HomePageMealItem";
 import { useContext } from "react";
-import { MealsContext } from "../MealsContext";
+import { MealsContext } from "../../MealsContext/MealsContext";
 
-export function MainPageComponent() {
+export function HomePageComponent() {
     const value = useContext(MealsContext);
     return (
         <>
@@ -12,7 +12,7 @@ export function MainPageComponent() {
             <ul className="meals-home-page">
                 {value.meals.map((item) => {
                     return (
-                        <MainPageMealItem
+                        <HomePageMealItem
                             key={item.id}
                             id={item.id}
                             mealTitle={item.title}

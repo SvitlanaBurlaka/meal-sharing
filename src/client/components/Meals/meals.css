@@ -1,6 +1,13 @@
+.meals-container {
+    background-image: url(./myImageforMeals.jpg);
+    width: 100%;
+    /* display: flex; */
+}
+
 .meal-price {
-    color: grey;
+    color: #b64e2a;
     font-size: 20px;
+    font-weight: 700;
 }
 
 .meal-item button {
@@ -22,15 +29,15 @@
 }
 
 .meals-list {
-    margin: 30px 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 30px;
-    padding: 15px;
+    padding: 40px;
 }
 
 .meal-item {
+    background: #e8e7eb9c;
     text-align: center;
     width: 250px;
     height: 100%;

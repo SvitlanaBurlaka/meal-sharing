@@ -1,0 +1,12 @@
+.not-found-container {
+    padding: 80px;
+    width: auto;
+    height: 400px;
+}
+
+.not-found,
+.not-found-text {
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { MealsContext } from "../MealsContext";
+import { MealsContext } from "../MealsContext/MealsContext";
 export function FormReservation(props) {
     const value = useContext(MealsContext);
     const [error, setError] = useState("");

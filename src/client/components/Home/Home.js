@@ -1,5 +1,5 @@
 import React from "react";
-import { MainPageComponent } from "../Main/MainPageComponent";
+import { HomePageComponent } from "./HomePageComponent";
 import { Link } from "react-router-dom";
 import "./home.css";
 export function Home() {
@@ -13,7 +13,7 @@ export function Home() {
                         don`t have enough money whether you think its just not worth it, so
                         this app exactly for you!
                     </p>
-                    <MainPageComponent />
+                    <HomePageComponent />
                     <Link to="/meals">
                         <button className="book-meal">Book meal</button>
                     </Link>

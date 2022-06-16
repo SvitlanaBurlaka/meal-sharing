@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import { MealsContext } from "../MealsContext";
+import { MealsContext } from "../MealsContext/MealsContext";
 import "./formCreateNewMeal.css";
 
 export function FormCreateNewMeal() {
@@ -111,7 +111,8 @@ export function FormCreateNewMeal() {
                     id="POST-max_reservations"
                 />
                 <label htmlFor="POST-description">Description:</label>
-                <textarea className="meal-description-text"
+                <textarea
+                    className="meal-description-text"
                     type="text"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
