@@ -9,12 +9,12 @@ import { MealsProvider } from "./components/MealsContext";
 import { Home } from "./components/Pages/Home";
 import { NotFoundPage } from "./components/Pages/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
-function App() {
 
+function App() {
   return (
     <Router>
+      <Header />
       <MealsProvider>
-        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -30,8 +30,8 @@ function App() {
           </Route>
           <Route component={NotFoundPage} />
         </Switch>
-        <Footer />
       </MealsProvider>
+      <Footer />
     </Router>
   );
 }

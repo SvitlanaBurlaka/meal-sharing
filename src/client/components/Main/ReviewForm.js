@@ -2,11 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function ReviewForm(props) {
+export function ReviewForm() {
     const [meal, setMeal] = useState({});
     const [review, setReview] = useState("");
     const [stars, setStars] = useState("");
     const [error, setError] = useState("");
+    const [name, setName] = useState("");
     const params = useParams();
 
     useEffect(() => {
@@ -37,6 +38,7 @@ export function ReviewForm(props) {
                 review_meal_id: parseInt(params.id),
                 stars: parseInt(stars),
                 created_date: "2021-08-05",
+                name: name,
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +59,16 @@ export function ReviewForm(props) {
             </p>
             <p className="error-text"> {error}</p>
             <form action="POST">
+                <label htmlFor="POST-name">Name:</label>
+                <input className="review-name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    id="POST-name"
+                />
                 <textarea
+                    className="review-text"
                     name="review"
                     id="review"
                     cols="30"

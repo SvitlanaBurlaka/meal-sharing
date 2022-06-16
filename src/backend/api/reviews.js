@@ -14,7 +14,8 @@ router.get("/", async(request, response) => {
             "review.description",
             "review.review_meal_id",
             "review.stars",
-            "review.created_date"
+            "review.created_date",
+            "review.name"
         );
         response.json(result);
     } catch (error) {

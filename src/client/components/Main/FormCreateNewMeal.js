@@ -7,8 +7,10 @@ import "./formCreateNewMeal.css";
 export function FormCreateNewMeal() {
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
+    const [whenDate, setWhenDate] = useState("");
     const [price, setPrice] = useState("");
     const [maxReserv, setMaxReserv] = useState("");
+    const [description, setDescription] = useState("");
     const [error, setError] = useState("");
     const value = useContext(MealsContext);
 
@@ -28,9 +30,11 @@ export function FormCreateNewMeal() {
                 body: JSON.stringify({
                     title: title,
                     location: location,
+                    when: value.getTodaysDate(),
                     created_date: value.getTodaysDate(),
                     price: price,
                     max_reservations: maxReserv,
+                    description: description,
                 }),
                 headers: {
                     "Content-Type": "application/json",
@@ -43,10 +47,20 @@ export function FormCreateNewMeal() {
                     setLocation("");
                     setPrice("");
                     setMaxReserv("");
+                    setWhenDate("");
+                    setDescription("");
                 }
             });
         }
     }
+
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
 
     return (
         <div className="form-add-meal">
@@ -71,6 +85,15 @@ export function FormCreateNewMeal() {
                     name="location"
                     id="POST-location"
                 />
+                <label htmlFor="POST-when">When:</label>
+                <input
+                    type="date"
+                    min={disablePastDate()}
+                    value={whenDate}
+                    onChange={(e) => setWhenDate(e.target.value)}
+                    name="when"
+                    id="POST-when"
+                />
                 <label htmlFor="POST-price">Price:</label>
                 <input
                     type="number"
@@ -86,6 +109,14 @@ export function FormCreateNewMeal() {
                     onChange={(e) => setMaxReserv(e.target.value)}
                     name="max_reservations"
                     id="POST-max_reservations"
+                />
+                <label htmlFor="POST-description">Description:</label>
+                <textarea className="meal-description-text"
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    name="description"
+                    id="POST-description"
                 />
                 <button type="submit">Add Meal</button>
             </form>

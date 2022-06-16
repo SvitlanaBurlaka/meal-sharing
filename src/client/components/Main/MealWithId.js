@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FormReservation } from "./FormReservation";
 import { ReviewForm } from "./ReviewForm";
+import { ReviewsComponent } from "./ReviewsComponent";
 import "./mealWithId.css";
 export function MealWithId() {
     const [meal, setMeal] = useState({});
     const [reservations, setReservations] = useState([]);
-    const params = useParams();
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-
+    const params = useParams();
     useEffect(() => {
         fetchMealWithId();
         fetchAvailReservation();
@@ -52,8 +52,6 @@ export function MealWithId() {
         .filter((item) => item.id == params.id)
         .map((e) => e.available_reservation);
 
-    console.log(availRes);
-
     return (
         <div className="id-meal-container">
             {isLoading ? <p className="loading-text"> Loading... </p> : ""}
@@ -63,13 +61,17 @@ export function MealWithId() {
             {parseInt(availRes) > 0 ? (
                 <>
                     <p className="meal-description">There is {availRes} meals left </p>
-                    <FormReservation id={meal.id} reloadReservations={fetchAvailReservation} />
+                    <FormReservation
+                        id={meal.id}
+                        reloadReservations={fetchAvailReservation}
+                    />
                 </>
             ) : (
                 <p className="no-meals-left">
                     Sorry...There is no available meals left...{" "}
                 </p>
             )}
+            <ReviewsComponent id={params.id}></ReviewsComponent>
             <ReviewForm></ReviewForm>
         </div>
     );

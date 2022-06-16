@@ -42,7 +42,7 @@ button[type="submit"] {
     margin: 70px auto;
 }
 
-textarea {
+.review-text {
     width: 70%;
     height: 150px;
     padding: 12px 20px;
@@ -52,6 +52,17 @@ textarea {
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
+}
+
+.review-name {
+    background-color: #f8f8f8;
+    width: 36%;
+    padding: 12px 20px;
+    margin: 15px 10px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 select {
@@ -99,6 +110,26 @@ select {
     color: crimson;
     font-size: 20px;
     font-weight: 900;
+}
+
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin: 30px;
+}
+
+.review-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #114d4dba;
+    color: white;
+    font-weight: 800;
+}
+
+.review-data {
+    text-align: center;
 }
 
 @media screen and (max-width: 900px) {

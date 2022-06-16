@@ -32,6 +32,15 @@ button[type="submit"] {
     text-align: center;
 }
 
+.meal-description-text {
+    width: 100%;
+    line-height: 3.2em;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 @media screen and (max-width: 1100px) {
     .form-add-meal {
         width: 80%;
