@@ -59,25 +59,28 @@ export function ReviewForm() {
             </p>
             <p className="error-text"> {error}</p>
             <form action="POST">
-                <label htmlFor="POST-name">Name:</label>
-                <input className="review-name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    name="name"
-                    id="POST-name"
-                />
-                <textarea
-                    className="review-text"
-                    name="review"
-                    id="review"
-                    cols="30"
-                    rows="10"
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
-                ></textarea>
                 <div className="select-container">
-                    <p>Give a star:</p>
+                    <label htmlFor="POST-name" className="name-label">
+                        Name:
+                    </label>
+                    <input
+                        className="review-name"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        name="name"
+                        id="POST-name"
+                    />
+                    <textarea
+                        className="review-text"
+                        name="review"
+                        id="review"
+                        cols="30"
+                        rows="10"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                    ></textarea>
+                    <label htmlFor="POST-stars" className="name-label">Give a star:</label>
                     <select
                         id="stars"
                         name="stars"

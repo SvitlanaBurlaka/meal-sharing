@@ -43,7 +43,8 @@ button[type="submit"] {
 }
 
 .review-text {
-    width: 70%;
+    margin: 15px 0;
+    width: 100%;
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -56,20 +57,23 @@ button[type="submit"] {
 
 .review-name {
     background-color: #f8f8f8;
-    width: 36%;
+    width: 100%;
     padding: 12px 20px;
-    margin: 15px 10px;
+    margin: 15px 0;
     display: inline-block;
     border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
+.name-label {
+    font-size: 16px;
+}
+
 select {
-    margin: 10px 35px;
-    width: 20%;
-    padding: 16px 20px;
-    border: none;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0;
     border-radius: 4px;
     background-color: #f1f1f1;
     border: 2px solid #ccc;
@@ -77,17 +81,21 @@ select {
 
 .select-container {
     display: flex;
-    align-items: baseline;
     font-size: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 70%;
+    flex-direction: column;
+    margin: 40px auto 30px;
 }
 
 .save-review-button {
-    width: 15%;
+    width: 100%;
     font-size: 18px;
     background-color: #114d4dba;
     color: white;
     padding: 12px 18px;
-    margin: 10px 35px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -112,24 +120,31 @@ select {
     font-weight: 900;
 }
 
+.reviews-title {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+
 .reviews-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    grid-gap: 25px;
     margin: 30px;
 }
 
 .review-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #114d4dba;
+    font-size: 15px;
     color: white;
-    font-weight: 800;
-}
-
-.review-data {
+    font-weight: 600;
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #114d4dba;
 }
 
 @media screen and (max-width: 900px) {
@@ -141,6 +156,11 @@ select {
         font-size: 16px;
         font-weight: 600;
         text-align: left;
+    }
+    .reviews-list {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 8px;
+        margin: 30px;
     }
 }
 
@@ -168,7 +188,6 @@ select {
         align-items: center;
         font-size: 16px;
     }
-    select,
     .save-review-button {
         width: 60%;
     }
@@ -178,5 +197,8 @@ select {
         color: crimson;
         font-size: 17px;
         font-weight: 600;
+    }
+    .reviews-list {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

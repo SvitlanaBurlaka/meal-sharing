@@ -36,16 +36,15 @@ export function ReviewsComponent(props) {
         <>
             {isLoading ? <p className="loading-text"> Loading... </p> : ""}
             {error && <p className="error-text"> Something went wrong </p>}
+            {reviews.length > 0 ? (<p className="reviews-title">Reviews:</p>) : ("")}
             <ul className="reviews-list">
                 {reviews.map((item) => (
-                    <div key={item.id} className="review-card">
-                        <li>
-                            <p className="review-data">{item.name}</p>
-                            <p className="review-data">{convertDate(item.created_date)}</p>
-                            <p className="review-data">{item.description}</p>
-                            <p className="review-data">{item.stars} star</p>
-                        </li>
-                    </div>
+                    <li className="review-card" key={item.id}>
+                        <p className="review-data">{item.name}</p>
+                        <p className="review-data">{convertDate(item.created_date)}</p>
+                        <p className="review-data">{item.description}</p>
+                        <p className="review-data">{item.stars} star</p>
+                    </li>
                 ))}
             </ul>
         </>
