@@ -18,7 +18,7 @@ export function MealWithId() {
     }, []);
 
     function fetchMealWithId() {
-        fetch(`http://localhost:5000/api/meals/${params.id}`)
+        fetch(`/api/meals/${params.id}`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -36,7 +36,7 @@ export function MealWithId() {
     }
 
     function fetchAvailReservation() {
-        fetch(`http://localhost:5000/api/meals?availableReservations=true`)
+        fetch(`/api/meals?availableReservations=true`)
             .then((response) => {
                 return response.json();
             })

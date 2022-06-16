@@ -15,7 +15,7 @@ export function ReviewForm() {
     }, []);
 
     function fetchMealWithId() {
-        fetch(`http://localhost:5000/api/meals/${params.id}`)
+        fetch(`/api/meals/${params.id}`)
             .then((response) => {
                 return response.json();
             })
@@ -30,7 +30,7 @@ export function ReviewForm() {
 
     function addReview(event) {
         event.preventDefault();
-        fetch("http://localhost:5000/api/reviews", {
+        fetch("/api/reviews", {
             method: "POST",
             body: JSON.stringify({
                 title: "Review for" + meal.title,

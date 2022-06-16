@@ -11,7 +11,7 @@ export function ReviewsComponent(props) {
     }, []);
 
     async function fetchReviews() {
-        fetch(`http://localhost:5000/api/reviews`)
+        fetch(`/api/reviews`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();

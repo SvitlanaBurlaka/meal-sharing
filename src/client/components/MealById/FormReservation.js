@@ -21,7 +21,7 @@ export function FormReservation(props) {
         ) {
             setError("Don`t leave empty inputs please.");
         } else {
-            fetch("http://localhost:5000/api/reservations", {
+            fetch("/api/reservations", {
                 method: "POST",
                 body: JSON.stringify({
                     number_of_guests: numberOfGuests,

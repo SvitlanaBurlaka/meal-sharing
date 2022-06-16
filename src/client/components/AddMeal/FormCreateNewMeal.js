@@ -27,7 +27,7 @@ export function FormCreateNewMeal() {
         ) {
             setError("Don`t leave empty inputs please.");
         } else {
-            fetch("http://localhost:5000/api/meals", {
+            fetch("/api/meals", {
                 method: "POST",
                 body: JSON.stringify({
                     title: title,
