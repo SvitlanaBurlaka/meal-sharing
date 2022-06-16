@@ -20,8 +20,10 @@ export function FormCreateNewMeal() {
         if (
             title.trim().length == 0 ||
             location.trim().length == 0 ||
+            whenDate.trim().length == 0 ||
             price.trim().length == 0 ||
-            maxReserv.trim().length == 0
+            maxReserv.trim().length == 0 ||
+            description.trim().length == 0
         ) {
             setError("Don`t leave empty inputs please.");
         } else {

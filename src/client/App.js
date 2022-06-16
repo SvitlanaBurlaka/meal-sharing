@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header/Header";
-import { Meals } from "./components/Main/Meals/Meals";
+import { Meals } from "./components/MealsPage/Meals";
 import { MealWithId } from "./components/MealById/MealWithId";
 import { Blog } from "./components/Blog/Blog";
 import { MealsProvider } from "./components/MealsContext/MealsContext";
-import { Home } from "./components/Main/Home/Home";
+import { Home } from "./components/Home/Home";
 import { NotFoundPage } from "./components/NotFound/NotFoundPage";
 import { Footer } from "./components/Footer/Footer";
 import { FormCreateNewMeal } from "./components/AddMeal/FormCreateNewMeal";

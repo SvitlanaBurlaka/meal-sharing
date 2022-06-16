@@ -1,7 +1,7 @@
 import React from "react";
 import { HomePageMealItem } from "./HomePageMealItem";
 import { useContext } from "react";
-import { MealsContext } from "../../MealsContext/MealsContext";
+import { MealsContext } from "../MealsContext/MealsContext";
 
 export function HomePageComponent() {
     const value = useContext(MealsContext);

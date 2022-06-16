@@ -54,7 +54,7 @@ export function ReviewForm() {
 
     return (
         <div className="review-container">
-            <p className="review-p">
+            <p className="review-title">
                 Have you alredy tried this meal? Leave your review please.
             </p>
             <p className="error-text"> {error}</p>
