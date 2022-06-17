@@ -69,6 +69,8 @@ export function FormReservation(props) {
                     <input
                         type="number"
                         value={numberOfGuests}
+                        min="1"
+                        max={props.availRes}
                         onChange={(e) => setNumberOfGuest(e.target.value)}
                         name="number-of-guests"
                         id="POST-number-of-guests"

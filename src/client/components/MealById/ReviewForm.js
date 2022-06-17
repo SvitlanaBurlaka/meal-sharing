@@ -82,7 +82,9 @@ export function ReviewForm(props) {
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
                     ></textarea>
-                    <label htmlFor="POST-stars" className="name-label">Give a star:</label>
+                    <label htmlFor="POST-stars" className="name-label">
+                        Give a star:
+                    </label>
                     <select
                         id="stars"
                         name="stars"

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FormReservation } from "./FormReservation";
-import { ReviewForm } from "./ReviewForm";
 import { ReviewsComponent } from "./ReviewsComponent";
 import "./mealWithId.css";
 
@@ -64,6 +63,7 @@ export function MealWithId() {
                     <p className="meal-description">There is {availRes} meals left </p>
                     <FormReservation
                         id={meal.id}
+                        availRes={availRes}
                         reloadReservations={fetchAvailReservation}
                     />
                 </>
@@ -72,10 +72,7 @@ export function MealWithId() {
                     Sorry...There is no available meals left...{" "}
                 </p>
             )}
-            <ReviewsComponent id={params.id}>
-                <ReviewForm></ReviewForm>
-            </ReviewsComponent>
-
+            <ReviewsComponent id={params.id}></ReviewsComponent>
         </div>
     );
 }

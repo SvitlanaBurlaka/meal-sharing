@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { ReviewForm } from "./ReviewForm";
 
 export function ReviewsComponent(props) {
     const [reviews, setReviews] = useState([]);
@@ -39,7 +40,7 @@ export function ReviewsComponent(props) {
             {reviews.length > 0 ? (<p className="reviews-title">Reviews:</p>) : ("")}
             <ul className="reviews-list">
                 {reviews.map((item) => (
-                    <li className="review-card" key={item.id} fetchReviewsFunction={fetchReviews}>
+                    <li className="review-card" key={item.id} >
                         <p className="review-data">{item.name}</p>
                         <p className="review-data">{convertDate(item.created_date)}</p>
                         <p className="review-data">{item.description}</p>
@@ -47,6 +48,9 @@ export function ReviewsComponent(props) {
                     </li>
                 ))}
             </ul>
+            <ReviewForm
+                fetchReviewsFunction={fetchReviews}
+            ></ReviewForm>
         </>
     )
 }
