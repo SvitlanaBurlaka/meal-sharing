@@ -2,6 +2,7 @@
     background-image: url(./myImage.jpg);
     width: 100%;
     display: flex;
+    flex: 1;
 }
 
 .book-meal {

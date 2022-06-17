@@ -72,8 +72,10 @@ export function MealWithId() {
                     Sorry...There is no available meals left...{" "}
                 </p>
             )}
-            <ReviewsComponent id={params.id}></ReviewsComponent>
-            <ReviewForm></ReviewForm>
+            <ReviewsComponent id={params.id}>
+                <ReviewForm></ReviewForm>
+            </ReviewsComponent>
+
         </div>
     );
 }

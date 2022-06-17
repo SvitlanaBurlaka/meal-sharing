@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function ReviewForm() {
+export function ReviewForm(props) {
     const [meal, setMeal] = useState({});
     const [review, setReview] = useState("");
     const [stars, setStars] = useState("");
@@ -33,7 +33,7 @@ export function ReviewForm() {
         fetch("/api/reviews", {
             method: "POST",
             body: JSON.stringify({
-                title: "Review for" + meal.title,
+                title: "Review for " + meal.title,
                 description: review,
                 review_meal_id: parseInt(params.id),
                 stars: parseInt(stars),
@@ -46,8 +46,10 @@ export function ReviewForm() {
         }).then((response) => {
             if (response.ok) {
                 alert("Yor review sent succesfully");
+                props.fetchReviewsFunction();
                 setReview("");
                 setStars("");
+                setName("");
             }
         });
     }

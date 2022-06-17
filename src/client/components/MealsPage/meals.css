@@ -1,6 +1,7 @@
 .meals-container {
     background-image: url(./myImageforMeals.jpg);
     width: 100%;
+    flex: 1;
 }
 
 .meal-price {
