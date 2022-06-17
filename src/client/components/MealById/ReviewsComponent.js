@@ -19,7 +19,9 @@ export function ReviewsComponent(props) {
                 }
             })
             .then((data) => {
-                setReviews(data.filter((item) => item.review_meal_id === Number(props.id)));
+                setReviews(
+                    data.filter((item) => item.review_meal_id === Number(props.id))
+                );
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -37,10 +39,10 @@ export function ReviewsComponent(props) {
         <>
             {isLoading ? <p className="loading-text"> Loading... </p> : ""}
             {error && <p className="error-text"> Something went wrong </p>}
-            {reviews.length > 0 ? (<p className="reviews-title">Reviews:</p>) : ("")}
+            {reviews.length > 0 ? <p className="reviews-title">Reviews:</p> : ""}
             <ul className="reviews-list">
                 {reviews.map((item) => (
-                    <li className="review-card" key={item.id} >
+                    <li className="review-card" key={item.id}>
                         <p className="review-data">{item.name}</p>
                         <p className="review-data">{convertDate(item.created_date)}</p>
                         <p className="review-data">{item.description}</p>
@@ -48,9 +50,7 @@ export function ReviewsComponent(props) {
                     </li>
                 ))}
             </ul>
-            <ReviewForm
-                fetchReviewsFunction={fetchReviews}
-            ></ReviewForm>
+            <ReviewForm fetchReviewsFunction={fetchReviews}></ReviewForm>
         </>
-    )
+    );
 }

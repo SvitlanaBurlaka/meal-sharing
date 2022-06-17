@@ -1,19 +1,23 @@
-.navigation-container {
+header {
+    background-color: #f0f1e9;
     display: flex;
-    flex-direction: column;
-    justify-content: right;
+    justify-content: center;
+}
+
+.description-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav {
-    background-color: #f0f1e9;
     display: flex;
-    justify-content: space-evenly;
-    width: auto;
+    justify-content: center;
     align-items: center;
 }
 
 .nav-link {
-    padding: 20px 35px;
+    padding: 20px 25px;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 800;
@@ -26,8 +30,14 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    nav {
+        flex-direction: row;
+    }
     .nav-link {
-        padding: 10px 10px;
+        padding: 10px 5px;
         font-size: 13px;
     }
     .logo-header {

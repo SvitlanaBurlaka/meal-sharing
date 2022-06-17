@@ -5,9 +5,12 @@ import "./header.css";
 
 export default function Header() {
     return (
-        <div className="navigation-container">
-            <nav>
+        <header>
+            <div className="description-header">
                 <img className="logo-header" src={logoHeader} alt="Main-logo" />
+                <h4>Your meal-sharing app!</h4>
+            </div>
+            <nav>
                 <Link to="/" className="nav-link">
                     Home
                 </Link>
@@ -20,11 +23,7 @@ export default function Header() {
                 <Link to="/blog" className="nav-link">
                     Blog
                 </Link>
-                <div className="description-header">
-                    <h4>Your meal-sharing app!</h4>
-                    <p>Choose your meal</p>
-                </div>
             </nav>
-        </div>
+        </header>
     );
 }

@@ -171,13 +171,14 @@ select {
         font-size: 16px;
     }
     .reservation-form {
-        width: 85%;
-        margin: 34px auto 36px;
+        width: 90%;
+        margin: 30px auto 10px;
     }
     .id-meal-container {
-        padding: 15px;
+        padding: 10px;
     }
     .review-title {
+        text-align: center;
         font-size: 16px;
     }
     textarea {
@@ -188,6 +189,7 @@ select {
         flex-direction: column;
         align-items: center;
         font-size: 16px;
+        width: 90%;
     }
     .save-review-button {
         width: 60%;
