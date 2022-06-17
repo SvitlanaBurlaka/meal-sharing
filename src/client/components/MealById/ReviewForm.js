@@ -28,6 +28,14 @@ export function ReviewForm(props) {
             });
     }
 
+    function getTodaysDate() {
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const yyyy = today.getFullYear();
+        const fullDate = yyyy + "-" + mm + "-" + dd;
+        return fullDate;
+    }
     function addReview(event) {
         event.preventDefault();
         fetch("/api/reviews", {
@@ -37,7 +45,7 @@ export function ReviewForm(props) {
                 description: review,
                 review_meal_id: parseInt(params.id),
                 stars: parseInt(stars),
-                created_date: "2021-08-05",
+                created_date: getTodaysDate(),
                 name: name,
             }),
             headers: {
