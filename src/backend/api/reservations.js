@@ -7,7 +7,10 @@ router.get("/", async(request, response) => {
     try {
         let reservations = knex("reservation");
         const result = await reservations.select(
-            "reservation.number_of_guests", "reservation.created_date", "reservation.contact_phonenumber", "reservation.contact_name"
+            "reservation.number_of_guests",
+            "reservation.created_date",
+            "reservation.contact_phonenumber",
+            "reservation.contact_name"
         );
         response.json(result);
     } catch (error) {
@@ -21,6 +24,7 @@ router.post("/", async(request, response) => {
         const newItem = request.body;
         const newReservation = await knex("reservation").insert(newItem);
         response.json(newReservation);
+        console.log("Added");
     } catch (error) {
         throw error;
     }
